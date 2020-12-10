@@ -2,19 +2,20 @@ import { Component } from "react";
 
 class TOC extends Component {
   render() {
+    const data = this.props.data;
+    const list = [];
+
+    data.forEach((element) => {
+      list.push(
+        <li key={element.id}>
+          <a href={"/content/" + element.id}>{element.title}</a>
+        </li>
+      );
+    });
+
     return (
       <nav>
-        <ul>
-          <li>
-            <a href="1.html">1.html</a>
-          </li>
-          <li>
-            <a href="2.html">2.CSS</a>
-          </li>
-          <li>
-            <a href="3.html">3.JavaScript</a>
-          </li>
-        </ul>
+        <ul>{list}</ul>
       </nav>
     );
   }
